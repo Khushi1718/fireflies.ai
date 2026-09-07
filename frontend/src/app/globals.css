@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-purple: #7B52F6;
+  --color-brand-purple-hover: #6742D1;
+  --color-brand-dark: #120e2b;
+  --color-brand-darker: #0b0914;
+}
+
+body {
+  background-color: var(--color-brand-darker);
+  color: #ffffff;
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Subtle star/particle background effect */
+.starry-bg {
+  background-image: 
+    radial-gradient(1px 1px at 15% 15%, rgba(255, 255, 255, 0.4) 1px, transparent 0),
+    radial-gradient(1px 1px at 30% 60%, rgba(255, 255, 255, 0.2) 1px, transparent 0),
+    radial-gradient(1.5px 1.5px at 75% 35%, rgba(255, 255, 255, 0.5) 1px, transparent 0),
+    radial-gradient(2px 2px at 50% 80%, rgba(255, 255, 255, 0.3) 1px, transparent 0),
+    radial-gradient(1px 1px at 85% 85%, rgba(255, 255, 255, 0.4) 1px, transparent 0);
+  background-size: 250px 250px;
+}
