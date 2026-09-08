@@ -124,6 +124,9 @@ export default function MeetingDetailPage() {
                 console.error("Failed to update action item", error);
               }
             }}
+            onActionItemCreated={(item) => {
+              setMeeting(prev => prev ? { ...prev, action_items: [...prev.action_items, item] } : prev);
+            }}
           />
         </div>
 

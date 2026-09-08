@@ -58,13 +58,6 @@ async def create_bot(
     if not webhook_url.endswith("/webhooks/recall"):
         webhook_url = webhook_url.rstrip("/") + "/webhooks/recall"
 
-    public_app_url = os.getenv("PUBLIC_APP_URL") or os.getenv("WEBHOOK_URL", "")
-    public_app_url = public_app_url.rstrip("/")
-    if public_app_url.endswith("/webhooks/recall"):
-        public_app_url = public_app_url[: -len("/webhooks/recall")]
-    if not public_app_url or "localhost" in public_app_url or "127.0.0.1" in public_app_url:
-        raise ValueError("PUBLIC_APP_URL must be a public URL; Recall blocks localhost links in bot payloads.")
-    live_url = f"{public_app_url}/live/{meeting_id}"
     payload["chat"] = {
         "on_bot_join": {
             "send_to": "everyone",
@@ -72,7 +65,7 @@ async def create_bot(
             "message": (
                 "Khushi Nain invited Fireflies.ai to record and take notes. "
                 "By continuing, you agree to https://fireflies.ai/privacy. "
-                f"View realtime notes here: {live_url}"
+                "Fireflies is connected and recording this meeting."
             )
         }
     }

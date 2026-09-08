@@ -1,4 +1,4 @@
-import { MeetingDetail } from "../lib/types";
+import { ActionItem, MeetingDetail } from "../lib/types";
 
 export const API_BASE = "/backend";
 
@@ -116,5 +116,16 @@ export const meetingApi = {
     const body = await res.json().catch(() => null);
     if (!res.ok) throw new Error(body?.detail || `AskFred failed (${res.status})`);
     return body.answer;
+  },
+
+  async createActionItem(meetingId: number, text: string): Promise<ActionItem> {
+    const res = await fetch(`${API_BASE}/action-items`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ meeting_id: meetingId, text, status: "open" }),
+    });
+    const body = await res.json().catch(() => null);
+    if (!res.ok) throw new Error(body?.detail || "Failed to create action item");
+    return body;
   }
 };

@@ -14,6 +14,7 @@ interface NotesPanelProps {
   topics?: Array<{ title: string; start_time_seconds: number | null; end_time_seconds: number | null }>;
   onTopicClick: (time: number) => void;
   onActionItemToggle?: (id: number, newStatus: string) => void;
+  onActionItemCreated?: (item: ActionItem) => void;
   onNotesGenerated?: (data: any) => void;
 }
 
@@ -26,6 +27,7 @@ export function NotesPanel({
   topics,
   onTopicClick,
   onActionItemToggle,
+  onActionItemCreated,
   onNotesGenerated,
 }: NotesPanelProps) {
   const [activeTab, setActiveTab] = useState<'notes' | 'aiskills'>('notes');
@@ -33,6 +35,8 @@ export function NotesPanel({
   const [generating, setGenerating] = useState(false);
   const [generateError, setGenerateError] = useState<string | null>(null);
   const [generateSuccess, setGenerateSuccess] = useState(false);
+  const [newActionText, setNewActionText] = useState('');
+  const [addingAction, setAddingAction] = useState(false);
 
   const formatTime = (secs: number) => {
     const m = Math.floor(secs / 60);
@@ -311,16 +315,45 @@ export function NotesPanel({
           )}
 
           {/* Action Items Section */}
-          {!generating && actionItems && actionItems.length > 0 && (
+          {!generating && (
             <div className="mt-10 pt-8 border-t border-gray-100">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-[15px] font-bold text-gray-900">Action Items</h3>
                 <span className="text-xs text-gray-400 font-medium">
-                  {actionItems.filter(a => a.status !== 'completed').length} open
+                  {actionItems?.filter(a => a.status !== 'completed').length || 0} open
                 </span>
               </div>
+              <form
+                onSubmit={async (event) => {
+                  event.preventDefault();
+                  if (!meetingId || !newActionText.trim() || addingAction) return;
+                  setAddingAction(true);
+                  try {
+                    const item = await meetingApi.createActionItem(meetingId, newActionText.trim());
+                    onActionItemCreated?.(item);
+                    setNewActionText('');
+                  } finally {
+                    setAddingAction(false);
+                  }
+                }}
+                className="mb-4 flex gap-2"
+              >
+                <input
+                  value={newActionText}
+                  onChange={(event) => setNewActionText(event.target.value)}
+                  placeholder="Add an action item"
+                  className="min-w-0 flex-1 rounded-md border border-gray-200 px-3 py-2 text-xs outline-none focus:border-[#7b52f6]"
+                />
+                <button
+                  type="submit"
+                  disabled={!newActionText.trim() || addingAction}
+                  className="rounded-md bg-[#7b52f6] px-3 py-2 text-xs font-semibold text-white disabled:opacity-40"
+                >
+                  Add
+                </button>
+              </form>
               <div className="space-y-2">
-                {actionItems.map(item => (
+                {(actionItems || []).map(item => (
                   <div 
                     key={item.id} 
                     className="flex items-start gap-3 p-3.5 border border-gray-100 rounded-xl hover:bg-gray-50/80 transition-colors"
