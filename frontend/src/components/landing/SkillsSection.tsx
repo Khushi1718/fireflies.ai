@@ -319,14 +319,14 @@ export default function SkillsSection() {
       <div className="max-w-6xl mx-auto px-6">
         
         {/* Title & Subtitle Header */}
-        <h2 className="text-4xl sm:text-5xl md:text-[54px] font-black mb-6 tracking-tight text-gray-900 leading-tight">
+        <h2 className="text-4xl sm:text-5xl md:text-[54px] font-semibold mb-6 tracking-tight text-gray-900 leading-tight">
           Go <span className="text-[#7b52f6]">Beyond Notetaking</span> With <br />
           200+ AI Skills
         </h2>
         
-        <p className="text-gray-600 text-base sm:text-lg md:text-xl mb-8 max-w-2xl mx-auto font-medium leading-relaxed">
+        <p className="text-gray-600 text-base sm:text-lg md:text-xl mb-8 max-w-2xl mx-auto font-normal leading-relaxed">
           AI Skills help you automatically extract key details, generate follow-up emails, score candidates, and other insights from your meetings.<br />
-          <span className="font-bold text-gray-900 cursor-pointer hover:text-[#7b52f6] underline underline-offset-4">Browse</span>
+          <span className="font-semibold text-gray-900 cursor-pointer hover:text-[#7b52f6] underline underline-offset-4">Browse</span>
         </p>
 
         {/* Call to Action Button */}
@@ -339,8 +339,8 @@ export default function SkillsSection() {
           </Link>
         </div>
 
-        {/* Tab Pills with Animated Timer Bar */}
-        <div className="flex flex-wrap justify-center gap-2.5 mb-14 max-w-5xl mx-auto">
+        {/* Tab Pills with Animated Timer Bar — Compact single-row fit */}
+        <div className="flex flex-wrap lg:flex-nowrap justify-center items-center gap-1.5 sm:gap-2 mb-14 max-w-6xl mx-auto overflow-x-auto scrollbar-none py-1">
           {CATEGORIES.map((cat, idx) => {
             const isActive = activeCategoryIndex === idx;
 
@@ -348,9 +348,9 @@ export default function SkillsSection() {
               <button 
                 key={cat.id}
                 onClick={() => handleTabClick(idx)}
-                className={`relative px-5 py-2.5 rounded-xl text-sm sm:text-base font-bold transition-all duration-200 cursor-pointer overflow-hidden ${
+                className={`relative px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-lg text-xs sm:text-[13px] md:text-sm font-semibold transition-all duration-200 cursor-pointer overflow-hidden shrink-0 ${
                   isActive 
-                    ? "bg-[#1c1833] text-white shadow-md" 
+                    ? "bg-[#1c1833] text-white shadow-sm" 
                     : "bg-gray-100/90 text-gray-700 hover:bg-gray-200/90 hover:text-gray-900 border border-gray-100"
                 }`}
               >
@@ -363,7 +363,7 @@ export default function SkillsSection() {
                     }`}
                   />
                 )}
-                <span className="relative z-10">{cat.label}</span>
+                <span className="relative z-10 whitespace-nowrap">{cat.label}</span>
               </button>
             );
           })}

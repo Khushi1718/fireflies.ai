@@ -11,9 +11,9 @@ export default function FeatureSection() {
         
         {/* Left Side: Content */}
         <div className="flex flex-col">
-          <h2 className="text-4xl sm:text-5xl lg:text-[54px] font-black text-gray-900 tracking-tight leading-[1.12] mb-8">
+          <h2 className="text-4xl sm:text-5xl lg:text-[54px] font-semibold text-gray-900 tracking-tight leading-[1.12] mb-8">
             High Quality Meeting <br />
-            <span className="text-[#7b52f6] font-black">Transcription</span> &amp; <span className="text-[#7b52f6] font-black">Recording</span>
+            <span className="text-[#7b52f6] font-semibold">Transcription</span> &amp; <span className="text-[#7b52f6] font-semibold">Recording</span>
           </h2>
 
           <div className="mb-12">

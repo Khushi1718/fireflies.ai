@@ -9,11 +9,11 @@ export default function SecuritySection() {
         {/* Top Row */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-16 gap-8">
            <div className="max-w-2xl">
-              <h2 className="text-4xl sm:text-5xl md:text-[54px] font-black mb-4 tracking-tight leading-tight flex items-center gap-3">
-                 Enterprise-Grade <span className="text-[#7b52f6] font-black">Security</span>
+              <h2 className="text-4xl sm:text-5xl md:text-[54px] font-semibold mb-4 tracking-tight leading-tight flex items-center gap-3">
+                 Enterprise-Grade <span className="text-[#7b52f6] font-semibold">Security</span>
                  <Lock className="text-[#10b981]" size={36} />
               </h2>
-              <p className="text-gray-600 text-lg sm:text-xl font-medium leading-relaxed">
+              <p className="text-gray-600 text-lg sm:text-xl font-normal leading-relaxed">
                  Fireflies is the preferred platform for CIOs across the Fortune 500, offering robust admin controls and stringent security protocols.
               </p>
            </div>

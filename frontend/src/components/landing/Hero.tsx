@@ -5,13 +5,13 @@ export default function Hero() {
   return (
     <section className="relative pt-12 sm:pt-16 pb-6 px-6 text-center z-10 select-none">
       <div className="max-w-5xl mx-auto flex flex-col items-center">
-        {/* Headline — Matches original: bold crisp white 72px */}
-        <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[76px] font-black text-white tracking-tight leading-[1.08] mb-6">
+        {/* Headline — Matches original: sleek, thin/semibold crisp white 76px */}
+        <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[76px] font-semibold text-white tracking-tight leading-[1.08] mb-6">
           The #1 AI Assistant For <br className="hidden sm:block" /> Your Meetings
         </h1>
 
-        {/* Subtext — Matches original: clean, slightly muted white, larger font */}
-        <p className="text-base sm:text-xl md:text-[22px] text-white/85 max-w-2xl mx-auto mb-10 font-medium leading-relaxed">
+        {/* Subtext — Matches original: clean, thin/regular white */}
+        <p className="text-base sm:text-xl md:text-[22px] text-white/80 max-w-2xl mx-auto mb-10 font-normal leading-relaxed">
           Transcribe, summarize, search, and analyze all your team conversations.
         </p>
         

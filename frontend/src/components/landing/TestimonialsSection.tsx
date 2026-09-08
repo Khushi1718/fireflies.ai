@@ -110,10 +110,10 @@ export default function TestimonialsSection() {
     <section className="bg-white py-24 md:py-32 relative z-10 text-gray-900 select-none overflow-hidden border-t border-gray-100">
       <div className="max-w-7xl mx-auto px-6 text-center mb-14">
         
-        <h2 className="text-4xl sm:text-5xl md:text-[54px] font-black text-gray-900 tracking-tight leading-tight mb-4">
+        <h2 className="text-4xl sm:text-5xl md:text-[54px] font-semibold text-gray-900 tracking-tight leading-tight mb-4">
           Don't Take Our Word For It
         </h2>
-        <p className="text-gray-600 text-lg sm:text-xl font-medium max-w-2xl mx-auto">
+        <p className="text-gray-600 text-lg sm:text-xl font-normal max-w-2xl mx-auto">
           See why thousands of organizations are switching to Fireflies
         </p>
 

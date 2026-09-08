@@ -5,12 +5,12 @@ export default function IntegrationsSection() {
     <section className="bg-black py-24 md:py-32 relative z-10 text-white overflow-hidden select-none">
       <div className="max-w-6xl mx-auto px-6 text-center">
         
-        <h2 className="text-4xl sm:text-5xl md:text-[56px] font-black mb-6 tracking-tight leading-tight">
-          <span className="text-[#c1b5fd] font-black">Integrate</span> Fireflies With Your Favorite <br className="hidden sm:block" />
-          <span className="text-[#c1b5fd] font-black">Work Tools</span>
+        <h2 className="text-4xl sm:text-5xl md:text-[56px] font-semibold mb-6 tracking-tight leading-tight">
+          <span className="text-[#c1b5fd] font-semibold">Integrate</span> Fireflies With Your Favorite <br className="hidden sm:block" />
+          <span className="text-[#c1b5fd] font-semibold">Work Tools</span>
         </h2>
         
-        <p className="text-white/80 text-lg sm:text-xl font-medium mb-16 max-w-2xl mx-auto">
+        <p className="text-white/80 text-lg sm:text-xl font-normal mb-16 max-w-2xl mx-auto">
           Integrate Fireflies with your favorite Work Tools
         </p>
 
