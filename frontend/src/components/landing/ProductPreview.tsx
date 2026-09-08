@@ -1,23 +1,23 @@
 "use client";
 
-import { Menu, Search, Bookmark, Plus, Bell, ChevronDown, Copy, Radio, MessageSquare } from "lucide-react";
+import { Menu, Search, Bookmark, Plus, Bell, ChevronDown, Copy, Radio, MessageSquare, Video } from "lucide-react";
 
 export default function ProductPreview() {
   return (
-    <div className="relative max-w-[1200px] w-full mx-auto px-2 sm:px-4 z-20 mt-6 select-none">
-      {/* Product Frame — Matches fireflies.ai exact screenshot: large width, sharp non-curved edges */}
-      <div className="bg-white rounded-none sm:rounded-t-md shadow-[0_30px_80px_-15px_rgba(0,0,0,0.7)] border-t border-x border-white/20 flex flex-col h-[700px] md:h-[760px] text-gray-800 relative overflow-hidden">
+    <div className="relative max-w-[1220px] w-full mx-auto px-2 sm:px-4 z-20 mt-6 select-none">
+      {/* Product Frame — Matches official fireflies.ai screenshot */}
+      <div className="bg-white rounded-t-xl sm:rounded-t-2xl shadow-[0_30px_90px_-15px_rgba(0,0,0,0.7)] border-t border-x border-white/20 flex flex-col h-[700px] md:h-[760px] text-gray-800 relative overflow-hidden">
         
         {/* 1. Top Header */}
         <div className="h-14 border-b border-gray-200 flex items-center justify-between px-5 bg-white shrink-0">
           {/* Left Breadcrumb */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3.5">
             <Menu size={18} className="text-gray-500 hover:text-gray-800 cursor-pointer transition-colors" />
             <div className="flex items-center gap-2 text-[13px]">
               <span className="text-gray-400 font-medium"># Sales</span>
               <span className="text-gray-300">/</span>
               <span className="font-semibold text-gray-900">Kickoff Call - Fireflies.ai x Acme</span>
-              <span className="bg-[#2dd4bf] text-white text-[10px] font-bold px-1.5 py-0.5 rounded uppercase tracking-wider ml-1">
+              <span className="bg-[#2dd4bf] text-white text-[10px] font-black px-1.5 py-0.5 rounded uppercase tracking-wider ml-1 shadow-xs">
                 REC
               </span>
             </div>
@@ -39,14 +39,9 @@ export default function ProductPreview() {
             <div className="w-px h-4 bg-gray-200" />
 
             {/* Share 🔗 Button (Matches Screenshot) */}
-            <button className="bg-[#6d28d9] hover:bg-[#5b21b6] text-white px-3 py-1.5 rounded-lg flex items-center gap-1.5 text-xs font-semibold shadow-sm transition-colors cursor-pointer">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="12" cy="12" r="10"/>
-                <line x1="2" y1="12" x2="22" y2="12"/>
-                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-              </svg>
+            <button className="bg-[#7c3aed] hover:bg-[#6d28d9] text-white px-3 py-1.5 rounded-lg flex items-center gap-1.5 text-xs font-bold shadow-xs transition-colors cursor-pointer">
               <span>Share</span>
-              <span className="text-[10px] text-purple-200 ml-0.5">🔗</span>
+              <span className="text-[10px]">🔗</span>
             </button>
 
             <div className="w-px h-4 bg-gray-200" />
@@ -107,10 +102,7 @@ export default function ProductPreview() {
                   Kickoff Call – Fireflies.ai x Acme
                 </h1>
                 <button className="flex items-center gap-1.5 border border-gray-200 rounded-lg px-3 py-1.5 text-xs font-semibold text-gray-700 hover:bg-gray-50 transition-colors cursor-pointer">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <rect x="2" y="4" width="20" height="16" rx="2"/>
-                    <path d="M10 9l5 3-5 3V9z" fill="currentColor"/>
-                  </svg>
+                  <Video size={14} className="text-gray-600" />
                   <span>Video</span>
                 </button>
               </div>
@@ -122,7 +114,7 @@ export default function ProductPreview() {
                     alt="Sarah Watts" 
                     className="w-5 h-5 rounded-full object-cover"
                   />
-                  <span className="font-medium text-gray-700">Sarah Watts, +3</span>
+                  <span className="font-semibold text-gray-800">Sarah Watts, +3</span>
                 </div>
                 <span>·</span>
                 <span>Mar 15 · 11:30 AM</span>
@@ -131,72 +123,64 @@ export default function ProductPreview() {
 
             {/* Sales Notes Pill & AI Apps */}
             <div className="flex items-center justify-between pt-1 border-t border-gray-100 text-xs">
-              <div className="flex items-center gap-2 text-[#7b52f6] font-semibold cursor-pointer">
-                <span className="text-sm">✦</span>
+              <div className="flex items-center gap-2 text-[#7b52f6] font-bold cursor-pointer hover:text-[#6742d1]">
+                <span className="text-sm">✨</span>
                 <span>Sales Notes</span>
                 <ChevronDown size={14} />
                 <button className="text-gray-400 hover:text-gray-600 ml-1">
                   <Copy size={13} />
                 </button>
               </div>
-              <div className="text-gray-400 font-medium cursor-pointer hover:text-gray-600 flex items-center gap-1">
+              <div className="text-gray-400 font-semibold cursor-pointer hover:text-gray-600 flex items-center gap-1">
                 <span>+ AI Apps</span>
               </div>
             </div>
 
             {/* Overview Block */}
             <div className="space-y-2">
-              <h2 className="text-sm font-bold text-gray-900">Overview</h2>
-              <p className="text-xs text-gray-600 leading-relaxed">
+              <h2 className="text-xs font-bold text-gray-900 uppercase tracking-wider">Overview</h2>
+              <p className="text-xs sm:text-[13px] text-gray-600 leading-relaxed font-normal">
                 The kickoff call served as an introduction between Fireflies.ai and Acme Inc. They aim to use Fireflies.ai primarily to streamline internal communications, automate sales call follow-ups, and improve meeting workflows.
               </p>
             </div>
 
             {/* Notes Section */}
             <div className="space-y-4 pt-2">
-              <h2 className="text-sm font-bold text-gray-900">Notes</h2>
+              <h2 className="text-xs font-bold text-gray-900 uppercase tracking-wider">Notes</h2>
 
               {/* Bullet Group 1 */}
-              <div className="space-y-1.5">
+              <div className="space-y-2">
                 <div className="flex items-center gap-2 text-xs font-bold text-gray-800">
-                  <span className="w-2.5 h-2.5 bg-[#475569] rounded-sm shrink-0"></span>
+                  <span className="w-2.5 h-2.5 bg-[#475569] rounded-xs shrink-0"></span>
                   <span>Use Case &amp; Requirements: 00:00 - 10:12</span>
                 </div>
-                <ul className="pl-6 space-y-1 text-xs text-gray-600 list-disc">
+                <ul className="pl-6 space-y-1.5 text-xs text-gray-600 list-disc">
                   <li>Acme wants their sales team more present during calls</li>
-                  <li>They want to automate data entry in <strong className="text-gray-900">HubSpot</strong> CRM</li>
+                  <li>They want to automate data entry in <strong className="text-gray-900 font-semibold">HubSpot</strong> CRM</li>
                   <li>Team managers want to use Fireflies to provide call coaching</li>
                 </ul>
               </div>
 
               {/* Bullet Group 2 */}
-              <div className="space-y-1.5">
+              <div className="space-y-2">
                 <div className="flex items-center gap-2 text-xs font-bold text-gray-800">
-                  <span className="w-2.5 h-2.5 bg-[#475569] rounded-sm shrink-0"></span>
+                  <span className="w-2.5 h-2.5 bg-[#475569] rounded-xs shrink-0"></span>
                   <span>Metrics &amp; Goals: 10:15 - 20:43</span>
                 </div>
-                <ul className="pl-6 space-y-1 text-xs text-gray-600 list-disc">
-                  <li>Acme is looking to buy Fireflies for <strong className="text-gray-900">50 seats</strong></li>
-                  <li>Timeline for implementation is <strong className="text-gray-900">1 week</strong></li>
+                <ul className="pl-6 space-y-1.5 text-xs text-gray-600 list-disc">
+                  <li>Acme is looking to buy Fireflies for <strong className="text-gray-900 font-semibold">50 seats</strong></li>
+                  <li>Timeline for implementation is <strong className="text-gray-900 font-semibold">1 week</strong></li>
                 </ul>
-              </div>
-
-              {/* Bullet Group 3 */}
-              <div className="space-y-1.5">
-                <div className="flex items-center gap-2 text-xs font-bold text-gray-800">
-                  <span className="w-2.5 h-2.5 bg-[#475569] rounded-sm shrink-0"></span>
-                  <span>Requests: 20:50 - 34:52</span>
-                </div>
               </div>
             </div>
           </div>
 
-          {/* Right Transcript Panel */}
-          <div className="w-[300px] border-l border-gray-100 flex flex-col bg-white shrink-0">
+          {/* Right Transcript Panel matching User Screenshot */}
+          <div className="w-[320px] border-l border-gray-100 flex flex-col bg-white shrink-0">
             <div className="p-4 border-b border-gray-100">
               <h3 className="text-xs font-semibold text-gray-700 mb-2">Transcript</h3>
               <div className="relative">
-                <Search size={14} className="absolute left-2.5 top-2.5 text-gray-400" />
+                <Search size={14} className="absolute left-3 top-2.5 text-gray-400" />
                 <input 
                   type="text" 
                   placeholder="Search" 
@@ -259,7 +243,27 @@ export default function ProductPreview() {
                     <span className="text-[#7b52f6] underline cursor-pointer font-mono text-[11px]">01:47</span>
                   </div>
                   <p className="text-[12px] text-gray-600 leading-relaxed">
-                    I&apos;ll prepare the API credentials and reach out by EOD so we can start meeting the timeline.
+                    I&apos;ll prepare the DPA and security documents for your review and reach out by EOD so we can start meeting the timeline.
+                  </p>
+                </div>
+              </div>
+
+              {/* Message 4 */}
+              <div className="flex items-start gap-2.5">
+                <img 
+                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" 
+                  alt="Sarah" 
+                  className="w-6 h-6 rounded-full object-cover mt-0.5"
+                />
+                <div>
+                  <div className="flex items-center gap-1.5 text-[11px] mb-0.5">
+                    <span className="font-semibold text-gray-900">Sarah</span>
+                    <ChevronDown size={11} className="text-gray-400" />
+                    <span className="text-gray-300">·</span>
+                    <span className="text-[#7b52f6] underline cursor-pointer font-mono text-[11px]">02:19</span>
+                  </div>
+                  <p className="text-[12px] text-gray-600 leading-relaxed">
+                    Sounds like a solid plan. Let&apos;s touch base again on Thursday.
                   </p>
                 </div>
               </div>
@@ -267,8 +271,8 @@ export default function ProductPreview() {
           </div>
         </div>
 
-        {/* 3. Floating AI Notetaker Widget — Exact match to fireflies.ai Image 2 */}
-        <div className="absolute bottom-5 right-5 w-[250px] h-[160px] bg-[#070514] rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.8)] border border-blue-500/25 p-4 flex flex-col items-center justify-center z-30 select-none backdrop-blur-xl">
+        {/* 3. Floating Glowing AI Orb Assistant Widget — Matches User Screenshot */}
+        <div className="absolute bottom-6 right-6 w-[220px] sm:w-[240px] h-[150px] bg-[#070417]/95 rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.85)] border border-purple-500/30 p-4 flex flex-col items-center justify-center z-30 select-none backdrop-blur-xl">
           {/* Blue Soundwave Pill in Top Right */}
           <div className="absolute top-3.5 right-3.5 bg-[#1e293b]/90 rounded-full px-2 py-0.5 flex items-center gap-0.5 text-[#38bdf8]">
             <span className="w-0.5 h-2 bg-[#38bdf8] rounded-full animate-pulse"></span>
@@ -283,7 +287,7 @@ export default function ProductPreview() {
             
             {/* Outer Ring */}
             <div className="relative w-full h-full rounded-full bg-gradient-to-tr from-[#38bdf8] via-[#a855f7] to-[#ec4899] p-[3px]">
-              <div className="w-full h-full bg-[#070514] rounded-full flex items-center justify-center">
+              <div className="w-full h-full bg-[#070417] rounded-full flex items-center justify-center">
                 {/* Fireflies Logo Mark inside */}
                 <div className="bg-[#ec4899] p-1.5 rounded text-white flex flex-col items-center justify-center relative w-6 h-6 overflow-hidden shadow-inner">
                   <div className="w-2 h-2 bg-white rounded-tl-sm absolute top-1 left-1"></div>
@@ -295,7 +299,7 @@ export default function ProductPreview() {
           </div>
 
           {/* Label */}
-          <p className="text-white text-[12px] font-semibold tracking-wide text-center mt-1.5">
+          <p className="text-white text-[12px] font-bold tracking-wide text-center mt-1.5">
             Sarah&apos;s Fireflies AI Notetaker
           </p>
         </div>

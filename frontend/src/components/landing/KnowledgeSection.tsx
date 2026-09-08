@@ -64,7 +64,7 @@ export default function KnowledgeSection() {
 
         {/* Tab Pills with Animated Timer Bar */}
         <div className="flex justify-center gap-2 mb-10">
-          <div className="bg-[#18142a] p-1.5 rounded-xl flex items-center gap-1.5 border border-white/10 shadow-inner">
+          <div className="bg-[#18142a] p-1.5 rounded-2xl flex items-center gap-1.5 border border-white/10 shadow-inner">
             {TABS.map((tab) => {
               const isActive = activeTab === tab.id;
 
@@ -72,25 +72,22 @@ export default function KnowledgeSection() {
                 <button
                   key={tab.id}
                   onClick={() => handleTabClick(tab.id)}
-                  className={`relative px-6 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 cursor-pointer overflow-hidden ${
+                  className={`relative px-6 py-2.5 rounded-xl text-sm font-bold transition-all duration-200 cursor-pointer overflow-hidden ${
                     isActive
                       ? "bg-white text-gray-900 shadow-md"
                       : "text-gray-400 hover:text-white hover:bg-white/5"
                   }`}
                 >
-                  <span className="relative z-10">{tab.label}</span>
-                  
-                  {/* Timer Progress Bar under active pill */}
+                  {/* Progress Fill at bottom inside active white button pill matching Screenshot 1 */}
                   {isActive && (
-                    <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-purple-200/80 overflow-hidden rounded-b-lg">
-                      <div
-                        key={key}
-                        className={`h-full bg-[#7c3aed] animate-tabs-progress ${
-                          isPaused ? "paused" : ""
-                        }`}
-                      />
-                    </div>
+                    <div
+                      key={key}
+                      className={`absolute bottom-0 left-0 h-[7px] bg-[#7c3aed] animate-tabs-progress ${
+                        isPaused ? "paused" : ""
+                      }`}
+                    />
                   )}
+                  <span className="relative z-10">{tab.label}</span>
                 </button>
               );
             })}

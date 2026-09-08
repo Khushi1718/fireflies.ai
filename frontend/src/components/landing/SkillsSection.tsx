@@ -350,23 +350,20 @@ export default function SkillsSection() {
                 onClick={() => handleTabClick(idx)}
                 className={`relative px-5 py-2.5 rounded-xl text-sm sm:text-base font-bold transition-all duration-200 cursor-pointer overflow-hidden ${
                   isActive 
-                    ? "bg-[#1d1836] text-white shadow-md" 
+                    ? "bg-[#1c1833] text-white shadow-md" 
                     : "bg-gray-100/90 text-gray-700 hover:bg-gray-200/90 hover:text-gray-900 border border-gray-100"
                 }`}
               >
-                <span className="relative z-10">{cat.label}</span>
-
-                {/* Animated Timer Progress Bar under active pill */}
+                {/* Active Tab Background Fill (Left-to-Right Progress) matching Fireflies Screenshot */}
                 {isActive && (
-                  <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-purple-900/40 overflow-hidden rounded-b-xl">
-                    <div
-                      key={key}
-                      className={`h-full bg-[#7b52f6] animate-tabs-progress ${
-                        isPaused ? "paused" : ""
-                      }`}
-                    />
-                  </div>
+                  <div
+                    key={key}
+                    className={`absolute inset-0 bg-[#5b3eb8] animate-tabs-progress ${
+                      isPaused ? "paused" : ""
+                    }`}
+                  />
                 )}
+                <span className="relative z-10">{cat.label}</span>
               </button>
             );
           })}
