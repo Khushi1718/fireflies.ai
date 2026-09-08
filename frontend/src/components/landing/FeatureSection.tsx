@@ -11,17 +11,17 @@ export default function FeatureSection() {
         
         {/* Left Side: Content */}
         <div className="flex flex-col">
-          <h2 className="text-4xl sm:text-5xl lg:text-[54px] font-extrabold text-gray-900 tracking-tight leading-[1.12] mb-8">
+          <h2 className="text-4xl sm:text-5xl lg:text-[54px] font-black text-gray-900 tracking-tight leading-[1.12] mb-8">
             High Quality Meeting <br />
-            <span className="text-[#7b52f6]">Transcription</span> &amp; <span className="text-[#7b52f6]">Recording</span>
+            <span className="text-[#7b52f6] font-black">Transcription</span> &amp; <span className="text-[#7b52f6] font-black">Recording</span>
           </h2>
 
           <div className="mb-12">
             <Link 
               href="/home"
-              className="inline-flex items-center gap-2 bg-[#7b52f6] hover:bg-[#6742d1] text-white px-6 py-3 rounded-lg text-[14px] font-semibold transition-colors shadow-sm cursor-pointer"
+              className="inline-flex items-center gap-2.5 bg-[#7b52f6] hover:bg-[#6742d1] text-white px-7 py-3.5 rounded-xl text-base font-bold transition-all shadow-md shadow-purple-500/20 hover:scale-[1.02] cursor-pointer"
             >
-              Get Started <ArrowRight size={16} />
+              Get Started <ArrowRight size={18} />
             </Link>
           </div>
 
@@ -29,8 +29,8 @@ export default function FeatureSection() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-10">
             {/* 1. 95% Accurate */}
             <div>
-              <div className="w-6 h-6 flex items-center justify-center text-gray-900 mb-3">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <div className="w-7 h-7 flex items-center justify-center text-gray-900 mb-3">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                   <circle cx="12" cy="12" r="9"/>
                   <line x1="12" y1="1" x2="12" y2="4"/>
                   <line x1="12" y1="20" x2="12" y2="23"/>
@@ -38,52 +38,52 @@ export default function FeatureSection() {
                   <line x1="20" y1="12" x2="23" y2="12"/>
                 </svg>
               </div>
-              <h3 className="font-bold text-[16px] text-gray-900 mb-1.5">95% Accurate</h3>
-              <p className="text-gray-500 text-[13.5px] leading-relaxed max-w-[260px]">
+              <h3 className="font-extrabold text-base sm:text-lg text-gray-900 mb-1.5">95% Accurate</h3>
+              <p className="text-gray-600 text-sm sm:text-base font-medium leading-relaxed max-w-[280px]">
                 Fireflies is the industry leader in transcription accuracy.
               </p>
             </div>
 
             {/* 2. 100+ Languages */}
             <div>
-              <div className="w-6 h-6 flex items-center justify-center text-gray-900 mb-3">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <div className="w-7 h-7 flex items-center justify-center text-gray-900 mb-3">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                   <circle cx="12" cy="12" r="10"/>
                   <line x1="2" y1="12" x2="22" y2="12"/>
                   <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
                 </svg>
               </div>
-              <h3 className="font-bold text-[16px] text-gray-900 mb-1.5">100+ Languages</h3>
-              <p className="text-gray-500 text-[13.5px] leading-relaxed max-w-[260px]">
+              <h3 className="font-extrabold text-base sm:text-lg text-gray-900 mb-1.5">100+ Languages</h3>
+              <p className="text-gray-600 text-sm sm:text-base font-medium leading-relaxed max-w-[280px]">
                 Transcribe meetings in English, Spanish, French, &amp; several others.
               </p>
             </div>
 
             {/* 3. Speaker Recognition */}
             <div>
-              <div className="w-6 h-6 flex items-center justify-center text-gray-900 mb-3">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <div className="w-7 h-7 flex items-center justify-center text-gray-900 mb-3">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
                   <circle cx="9" cy="7" r="4"/>
                   <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
                   <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
                 </svg>
               </div>
-              <h3 className="font-bold text-[16px] text-gray-900 mb-1.5">Speaker Recognition</h3>
-              <p className="text-gray-500 text-[13.5px] leading-relaxed max-w-[260px]">
+              <h3 className="font-extrabold text-base sm:text-lg text-gray-900 mb-1.5">Speaker Recognition</h3>
+              <p className="text-gray-600 text-sm sm:text-base font-medium leading-relaxed max-w-[280px]">
                 Fireflies identifies different speakers in meetings and audio files.
               </p>
             </div>
 
             {/* 4. Auto-Language Detection */}
             <div>
-              <div className="w-6 h-6 flex items-center justify-center text-gray-900 mb-3">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <div className="w-7 h-7 flex items-center justify-center text-gray-900 mb-3">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                   <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
                 </svg>
               </div>
-              <h3 className="font-bold text-[16px] text-gray-900 mb-1.5">Auto-Language Detection</h3>
-              <p className="text-gray-500 text-[13.5px] leading-relaxed max-w-[260px]">
+              <h3 className="font-extrabold text-base sm:text-lg text-gray-900 mb-1.5">Auto-Language Detection</h3>
+              <p className="text-gray-600 text-sm sm:text-base font-medium leading-relaxed max-w-[280px]">
                 Automatically switch languages from meeting to meeting with ease.
               </p>
             </div>

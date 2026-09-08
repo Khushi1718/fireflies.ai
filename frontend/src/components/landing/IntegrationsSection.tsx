@@ -2,15 +2,15 @@ import { Calendar, List, CheckSquare } from "lucide-react";
 
 export default function IntegrationsSection() {
   return (
-    <section className="bg-black py-24 relative z-10 text-white overflow-hidden">
+    <section className="bg-black py-24 md:py-32 relative z-10 text-white overflow-hidden select-none">
       <div className="max-w-6xl mx-auto px-6 text-center">
         
-        <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight leading-tight">
-          <span className="text-[#c1b5fd]">Integrate</span> Fireflies With Your Favorite <br />
-          <span className="text-[#c1b5fd]">Work Tools</span>
+        <h2 className="text-4xl sm:text-5xl md:text-[56px] font-black mb-6 tracking-tight leading-tight">
+          <span className="text-[#c1b5fd] font-black">Integrate</span> Fireflies With Your Favorite <br className="hidden sm:block" />
+          <span className="text-[#c1b5fd] font-black">Work Tools</span>
         </h2>
         
-        <p className="text-white/70 text-lg mb-20 max-w-2xl mx-auto">
+        <p className="text-white/80 text-lg sm:text-xl font-medium mb-16 max-w-2xl mx-auto">
           Integrate Fireflies with your favorite Work Tools
         </p>
 
@@ -20,35 +20,35 @@ export default function IntegrationsSection() {
              <div className="flex items-center gap-2 mb-4">
                 <div className="w-6 h-6 bg-blue-500 rounded-md flex items-center justify-center text-[10px] font-bold">SF</div>
                 <div className="w-6 h-6 bg-orange-500 rounded-md flex items-center justify-center text-[10px] font-bold">HS</div>
-                <span className="text-xs text-white/50">5+</span>
+                <span className="text-xs text-white/50 font-bold">5+</span>
              </div>
-             <h4 className="font-bold text-[15px] mb-2">CRM</h4>
-             <p className="text-white/60 text-sm leading-relaxed">Auto-fill out your CRM with notes and call logs.</p>
+             <h4 className="font-extrabold text-lg sm:text-xl mb-2 text-white">CRM</h4>
+             <p className="text-white/70 text-sm sm:text-base font-normal leading-relaxed">Auto-fill out your CRM with notes and call logs.</p>
           </div>
           <div>
              <div className="flex items-center gap-2 mb-4">
                 <div className="w-6 h-6 bg-rose-500 rounded-md flex items-center justify-center text-[10px] font-bold">AS</div>
                 <div className="w-6 h-6 bg-blue-400 rounded-md flex items-center justify-center text-[10px] font-bold">TR</div>
-                <span className="text-xs text-white/50">9+</span>
+                <span className="text-xs text-white/50 font-bold">9+</span>
              </div>
-             <h4 className="font-bold text-[15px] mb-2">Project Management</h4>
-             <p className="text-white/60 text-sm leading-relaxed">Create tasks automatically after every meeting.</p>
+             <h4 className="font-extrabold text-lg sm:text-xl mb-2 text-white">Project Management</h4>
+             <p className="text-white/70 text-sm sm:text-base font-normal leading-relaxed">Create tasks automatically after every meeting.</p>
           </div>
           <div>
              <div className="flex items-center gap-2 mb-4">
                 <div className="w-6 h-6 bg-green-500 rounded-md flex items-center justify-center text-[10px] font-bold">GH</div>
                 <div className="w-6 h-6 bg-green-400 rounded-md flex items-center justify-center text-[10px] font-bold">BB</div>
-                <span className="text-xs text-white/50">1+</span>
+                <span className="text-xs text-white/50 font-bold">1+</span>
              </div>
-             <h4 className="font-bold text-[15px] mb-2">ATS</h4>
-             <p className="text-white/60 text-sm leading-relaxed">Send meeting notes and transcripts to Greenhouse, Lever and others.</p>
+             <h4 className="font-extrabold text-lg sm:text-xl mb-2 text-white">ATS</h4>
+             <p className="text-white/70 text-sm sm:text-base font-normal leading-relaxed">Send meeting notes and transcripts to Greenhouse, Lever and others.</p>
           </div>
           <div>
              <div className="flex items-center gap-2 mb-4">
                 <div className="w-6 h-6 bg-purple-600 rounded-md flex items-center justify-center text-[10px] font-bold">SL</div>
              </div>
-             <h4 className="font-bold text-[15px] mb-2">Slack</h4>
-             <p className="text-white/60 text-sm leading-relaxed">Get notes and alerts in the channels where you work.</p>
+             <h4 className="font-extrabold text-lg sm:text-xl mb-2 text-white">Slack</h4>
+             <p className="text-white/70 text-sm sm:text-base font-normal leading-relaxed">Get notes and alerts in the channels where you work.</p>
           </div>
         </div>
 

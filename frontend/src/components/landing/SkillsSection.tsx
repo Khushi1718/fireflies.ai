@@ -315,32 +315,32 @@ export default function SkillsSection() {
   const currentCategory = CATEGORIES[activeCategoryIndex];
 
   return (
-    <section className="bg-white py-24 relative z-10 text-center select-none overflow-hidden">
+    <section className="bg-white py-24 md:py-32 relative z-10 text-center select-none overflow-hidden border-t border-gray-100">
       <div className="max-w-6xl mx-auto px-6">
         
         {/* Title & Subtitle Header */}
-        <h2 className="text-4xl md:text-[46px] font-extrabold mb-5 tracking-tight text-gray-900 leading-tight">
+        <h2 className="text-4xl sm:text-5xl md:text-[54px] font-black mb-6 tracking-tight text-gray-900 leading-tight">
           Go <span className="text-[#7b52f6]">Beyond Notetaking</span> With <br />
           200+ AI Skills
         </h2>
         
-        <p className="text-gray-600 text-base md:text-lg mb-8 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-gray-600 text-base sm:text-lg md:text-xl mb-8 max-w-2xl mx-auto font-medium leading-relaxed">
           AI Skills help you automatically extract key details, generate follow-up emails, score candidates, and other insights from your meetings.<br />
-          <span className="font-semibold text-gray-800 cursor-pointer hover:text-[#7b52f6] underline underline-offset-4">Browse</span>
+          <span className="font-bold text-gray-900 cursor-pointer hover:text-[#7b52f6] underline underline-offset-4">Browse</span>
         </p>
 
         {/* Call to Action Button */}
         <div className="mb-14">
           <Link 
             href="/home"
-            className="inline-flex bg-[#7b52f6] hover:bg-[#6842d1] text-white px-7 py-3 rounded-lg font-semibold text-sm transition-all duration-200 items-center gap-2 shadow-md hover:shadow-lg shadow-purple-500/20"
+            className="inline-flex bg-[#7b52f6] hover:bg-[#6842d1] text-white px-7 py-3.5 rounded-xl font-bold text-base transition-all duration-200 items-center gap-2.5 shadow-lg hover:shadow-xl shadow-purple-500/25 hover:scale-[1.02]"
           >
             Get Started <ArrowRight size={18} />
           </Link>
         </div>
 
         {/* Tab Pills with Animated Timer Bar */}
-        <div className="flex flex-wrap justify-center gap-2 mb-12 max-w-5xl mx-auto">
+        <div className="flex flex-wrap justify-center gap-2.5 mb-14 max-w-5xl mx-auto">
           {CATEGORIES.map((cat, idx) => {
             const isActive = activeCategoryIndex === idx;
 
@@ -348,17 +348,17 @@ export default function SkillsSection() {
               <button 
                 key={cat.id}
                 onClick={() => handleTabClick(idx)}
-                className={`relative px-4.5 py-2.5 rounded-lg text-xs md:text-sm font-semibold transition-all duration-200 cursor-pointer overflow-hidden ${
+                className={`relative px-5 py-2.5 rounded-xl text-sm sm:text-base font-bold transition-all duration-200 cursor-pointer overflow-hidden ${
                   isActive 
                     ? "bg-[#1d1836] text-white shadow-md" 
-                    : "bg-gray-50/90 text-gray-600 hover:bg-gray-100 hover:text-gray-900 border border-gray-100"
+                    : "bg-gray-100/90 text-gray-700 hover:bg-gray-200/90 hover:text-gray-900 border border-gray-100"
                 }`}
               >
                 <span className="relative z-10">{cat.label}</span>
 
                 {/* Animated Timer Progress Bar under active pill */}
                 {isActive && (
-                  <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-purple-900/40 overflow-hidden rounded-b-lg">
+                  <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-purple-900/40 overflow-hidden rounded-b-xl">
                     <div
                       key={key}
                       className={`h-full bg-[#7b52f6] animate-tabs-progress ${
@@ -374,23 +374,23 @@ export default function SkillsSection() {
 
         {/* Interactive Cards Stack with Smooth Transition & Hover Pause */}
         <div 
-          className="max-w-2xl mx-auto flex flex-col gap-3.5 text-left relative"
+          className="max-w-2xl mx-auto flex flex-col gap-4 text-left relative"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
           {currentCategory.skills.map((skill, idx) => (
             <div 
               key={`${currentCategory.id}-${idx}`}
-              className="bg-white border border-gray-100 p-4 sm:p-4.5 rounded-2xl shadow-[0_4px_25px_rgba(0,0,0,0.03)] flex items-center gap-4 hover:shadow-md hover:border-gray-200 transition-all duration-200 cursor-pointer animate-fadeIn"
+              className="bg-white border border-gray-100 p-4.5 sm:p-5 rounded-2xl shadow-[0_4px_25px_rgba(0,0,0,0.03)] flex items-center gap-4.5 hover:shadow-md hover:border-gray-200 transition-all duration-200 cursor-pointer animate-fadeIn"
             >
-              <div className={`w-11 h-11 sm:w-12 sm:h-12 rounded-xl ${skill.iconBg} flex items-center justify-center ${skill.iconColor} shrink-0 shadow-sm`}>
+              <div className={`w-12 h-12 sm:w-13 sm:h-13 rounded-xl ${skill.iconBg} flex items-center justify-center ${skill.iconColor} shrink-0 shadow-xs`}>
                 <Plus size={24} strokeWidth={2.5} />
               </div>
               <div className="flex-1 min-w-0">
-                <h4 className="font-bold text-gray-900 text-sm sm:text-[15px] mb-0.5 tracking-tight">
+                <h4 className="font-extrabold text-gray-900 text-base sm:text-lg mb-0.5 tracking-tight">
                   {skill.title}
                 </h4>
-                <p className="text-xs sm:text-sm text-gray-500 leading-normal">
+                <p className="text-xs sm:text-sm text-gray-500 font-medium leading-normal">
                   {skill.description}
                 </p>
               </div>
@@ -400,23 +400,23 @@ export default function SkillsSection() {
           {/* 5th "Create New" Card matching Fireflies screenshot */}
           <div 
             key={`${currentCategory.id}-create-new`}
-            className="bg-gradient-to-b from-white via-white to-emerald-50/60 border border-gray-100 p-4 sm:p-4.5 rounded-2xl shadow-[0_4px_25px_rgba(0,0,0,0.03)] flex items-center justify-between gap-4 hover:shadow-md hover:border-emerald-200/80 transition-all duration-200 cursor-pointer animate-fadeIn"
+            className="bg-gradient-to-b from-white via-white to-emerald-50/60 border border-gray-100 p-4.5 sm:p-5 rounded-2xl shadow-[0_4px_25px_rgba(0,0,0,0.03)] flex items-center justify-between gap-4.5 hover:shadow-md hover:border-emerald-200/80 transition-all duration-200 cursor-pointer animate-fadeIn"
           >
-            <div className="flex items-center gap-4 flex-1 min-w-0">
-              <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-emerald-100/90 text-emerald-500 flex items-center justify-center shrink-0 shadow-sm">
+            <div className="flex items-center gap-4.5 flex-1 min-w-0">
+              <div className="w-12 h-12 sm:w-13 sm:h-13 rounded-xl bg-emerald-100/90 text-emerald-500 flex items-center justify-center shrink-0 shadow-xs">
                 <Plus size={24} strokeWidth={2.5} />
               </div>
               <div className="flex-1 min-w-0">
-                <h4 className="font-bold text-gray-900 text-sm sm:text-[15px] mb-0.5 tracking-tight">
+                <h4 className="font-extrabold text-gray-900 text-base sm:text-lg mb-0.5 tracking-tight">
                   Create New
                 </h4>
-                <p className="text-xs sm:text-sm text-gray-500 leading-normal">
+                <p className="text-xs sm:text-sm text-gray-500 font-medium leading-normal">
                   Add prompts to tailor meeting summaries to fit your needs.
                 </p>
               </div>
             </div>
 
-            <button className="bg-white border border-gray-200 text-gray-800 hover:bg-gray-50 px-4 py-2 rounded-lg text-xs font-semibold shadow-sm transition-colors shrink-0">
+            <button className="bg-white border border-gray-200 text-gray-900 hover:bg-gray-50 px-4.5 py-2 rounded-xl text-xs font-bold shadow-xs transition-colors shrink-0 cursor-pointer">
               Create
             </button>
           </div>

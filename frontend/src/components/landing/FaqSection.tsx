@@ -23,7 +23,7 @@ export default function FaqSection() {
     <section className="bg-white py-24 relative z-10 text-gray-900">
       <div className="max-w-3xl mx-auto px-6">
         
-        <h2 className="text-4xl md:text-5xl font-bold mb-16 tracking-tight text-center">
+        <h2 className="text-4xl sm:text-5xl md:text-[54px] font-black mb-16 tracking-tight text-center text-gray-900">
           Frequently Asked Questions
         </h2>
 
