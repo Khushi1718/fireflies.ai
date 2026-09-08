@@ -3,43 +3,47 @@ import { ArrowRight, Star, Lock } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative pt-24 pb-16 px-6 text-center z-10">
+    <section className="relative pt-12 pb-4 px-6 text-center z-10">
       <div className="max-w-4xl mx-auto flex flex-col items-center">
-        <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tight leading-tight mb-6">
-          The #1 AI Assistant For <br className="hidden md:block" /> Your Meetings
+        {/* Headline — Matches original: bold 64px crisp white */}
+        <h1 className="text-[42px] sm:text-[56px] md:text-[64px] font-extrabold text-white tracking-tight leading-[1.12] mb-4">
+          The #1 AI Assistant For <br className="hidden sm:block" /> Your Meetings
         </h1>
-        <p className="text-lg md:text-xl text-white/80 mb-10 max-w-2xl">
+
+        {/* Subtext — Matches original: clean, slightly muted white */}
+        <p className="text-[15px] sm:text-[17px] text-white/75 max-w-xl mx-auto mb-8 font-normal leading-relaxed">
           Transcribe, summarize, search, and analyze all your team conversations.
         </p>
         
-        <div className="flex flex-col sm:flex-row items-center gap-4 mb-12">
+        {/* CTA Buttons */}
+        <div className="flex flex-col sm:flex-row items-center gap-3.5 mb-8">
           <Link 
             href="/home"
-            className="bg-brand-purple text-white px-8 py-3 rounded font-medium text-[15px] hover:bg-brand-purple-hover transition-colors flex items-center gap-2"
+            className="bg-[#7c3aed] hover:bg-[#6d28d9] text-white px-6 py-2.5 rounded-lg font-semibold text-[14px] transition-all duration-200 flex items-center gap-2 shadow-lg shadow-purple-900/30"
           >
-            Get Started <ArrowRight size={18} />
+            Get Started <ArrowRight size={16} />
           </Link>
-          <button className="bg-[#242136] text-white px-8 py-3 rounded font-medium text-[15px] hover:bg-[#2f2c45] transition-colors border border-white/5">
+          <button className="bg-[#1f1b34] hover:bg-[#282344] text-white px-6 py-2.5 rounded-lg font-semibold text-[14px] transition-all duration-200 border border-white/10">
             Request Demo
           </button>
         </div>
 
         {/* Rating Badge */}
-        <div className="flex items-center gap-3 bg-[#1e1a31] border border-white/10 rounded-md px-4 py-2 text-[13px] text-white/90">
+        <div className="flex items-center gap-3 bg-[#161226]/90 border border-white/10 rounded-md px-3.5 py-1.5 text-[12px] text-white/85 shadow-sm">
           <div className="flex items-center gap-2">
-            <span className="text-[#f97316] font-bold">G</span>
+            <span className="text-[#f97316] font-bold text-[13px]">G</span>
             <span>Rated 4.8 / 5</span>
             <div className="flex items-center gap-0.5 text-[#f97316]">
-              <Star size={14} fill="currentColor" />
-              <Star size={14} fill="currentColor" />
-              <Star size={14} fill="currentColor" />
-              <Star size={14} fill="currentColor" />
-              <Star size={14} fill="currentColor" />
+              <Star size={12} fill="currentColor" />
+              <Star size={12} fill="currentColor" />
+              <Star size={12} fill="currentColor" />
+              <Star size={12} fill="currentColor" />
+              <Star size={12} fill="currentColor" />
             </div>
           </div>
-          <div className="w-px h-4 bg-white/20"></div>
+          <div className="w-px h-3.5 bg-white/20"></div>
           <div className="flex items-center gap-1.5">
-            <Lock size={14} className="text-[#10b981]" />
+            <Lock size={12} className="text-[#10b981]" />
             <span>GDPR, SOC2, More</span>
           </div>
         </div>

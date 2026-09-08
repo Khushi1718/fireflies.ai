@@ -10,7 +10,7 @@ export default function RootLayout({
       <head>
         <title>Fireflies.ai Clone | The #1 AI Assistant For Your Meetings</title>
       </head>
-      <body className={`antialiased`}>
+      <body className={`antialiased`} suppressHydrationWarning>
         {children}
       </body>
     </html>

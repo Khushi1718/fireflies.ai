@@ -1,5 +1,6 @@
 import Header from "@/components/landing/Header";
 import Hero from "@/components/landing/Hero";
+import AnimatedStarField from "@/components/landing/AnimatedStarField";
 import ProductPreview from "@/components/landing/ProductPreview";
 import LogosSection from "@/components/landing/LogosSection";
 import FeatureSection from "@/components/landing/FeatureSection";
@@ -27,21 +28,22 @@ export default function LandingPage() {
       <Header />
 
       {/* Hero Section with starry background */}
-      <div className="pt-[140px] starry-bg min-h-screen relative overflow-hidden flex flex-col">
-        {/* Subtle purple gradient glow at the top */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-brand-purple/20 blur-[120px] rounded-full pointer-events-none"></div>
+      <div className="pt-[105px] starry-bg relative overflow-hidden">
+        {/* Animated subtle star field with soft firefly glows */}
+        <AnimatedStarField />
+
+        {/* Very soft ambient purple glow behind hero text */}
+        <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-purple-600/10 blur-[140px] rounded-full pointer-events-none z-0"></div>
         
         <Hero />
         
-        {/* Negative margin to pull the preview up into the hero space slightly */}
-        <div className="-mt-10 md:-mt-16 z-20">
+        {/* Product preview */}
+        <div className="z-20">
           <ProductPreview />
         </div>
         
-        {/* Logos section acts as the bridge between dark hero and white feature sections */}
-        <div className="mt-auto">
-          <LogosSection />
-        </div>
+        {/* Logos section */}
+        <LogosSection />
       </div>
 
       {/* White Feature Sections */}
@@ -67,11 +69,11 @@ export default function LandingPage() {
       {/* Knowledge Base Section */}
       <KnowledgeSection />
 
-      {/* MCP Section */}
-      <McpSection />
-
       {/* AI Skills Section */}
       <SkillsSection />
+
+      {/* MCP Section */}
+      <McpSection />
 
       {/* Integrations Section */}
       <IntegrationsSection />

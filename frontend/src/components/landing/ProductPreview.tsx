@@ -1,170 +1,265 @@
-import { Menu, Search, Sparkles, Mic, MessageSquare, Bookmark, Share2, Plus, Bell } from "lucide-react";
+"use client";
+
+import { Menu, Search, Bookmark, Plus, Bell, ChevronDown, Copy, Radio, MessageSquare } from "lucide-react";
 
 export default function ProductPreview() {
   return (
-    <div className="relative max-w-6xl mx-auto px-4 z-20 mt-8 mb-20">
-      {/* Outer Card with subtle glow/shadow */}
-      <div className="bg-white rounded-xl shadow-2xl overflow-hidden border border-white/10 flex flex-col h-[600px] text-gray-800">
+    <div className="relative max-w-[1200px] w-full mx-auto px-2 sm:px-4 z-20 mt-6 select-none">
+      {/* Product Frame — Matches fireflies.ai exact screenshot: large width, sharp non-curved edges */}
+      <div className="bg-white rounded-none sm:rounded-t-md shadow-[0_30px_80px_-15px_rgba(0,0,0,0.7)] border-t border-x border-white/20 flex flex-col h-[700px] md:h-[760px] text-gray-800 relative overflow-hidden">
         
-        {/* Top Header */}
-        <div className="flex items-center justify-between border-b border-gray-200 px-4 py-3 bg-white">
+        {/* 1. Top Header */}
+        <div className="h-14 border-b border-gray-200 flex items-center justify-between px-5 bg-white shrink-0">
+          {/* Left Breadcrumb */}
           <div className="flex items-center gap-4">
-            <Menu size={20} className="text-gray-500 cursor-pointer" />
-            <div className="flex items-center gap-2 text-sm text-gray-500">
-              <span># Sales</span>
-              <span>/</span>
-              <span className="font-medium text-gray-800">Kickoff Call - Fireflies.ai x Acme</span>
-              <span className="bg-[#10b981] text-white text-[10px] font-bold px-1.5 py-0.5 rounded uppercase">REC</span>
+            <Menu size={18} className="text-gray-500 hover:text-gray-800 cursor-pointer transition-colors" />
+            <div className="flex items-center gap-2 text-[13px]">
+              <span className="text-gray-400 font-medium"># Sales</span>
+              <span className="text-gray-300">/</span>
+              <span className="font-semibold text-gray-900">Kickoff Call - Fireflies.ai x Acme</span>
+              <span className="bg-[#2dd4bf] text-white text-[10px] font-bold px-1.5 py-0.5 rounded uppercase tracking-wider ml-1">
+                REC
+              </span>
             </div>
           </div>
-          <div className="flex items-center gap-4">
-            {/* Slack integration icon placeholder */}
-            <div className="w-5 h-5 rounded flex items-center justify-center relative bg-gray-100">
-              <span className="text-xs">💬</span>
+
+          {/* Right Action Icons */}
+          <div className="flex items-center gap-3.5">
+            {/* Authentic 4-color Slack Icon with Chevron */}
+            <div className="flex items-center gap-1 cursor-pointer hover:bg-gray-50 p-1 rounded-md transition-colors" title="Slack integration">
+              <svg width="17" height="17" viewBox="0 0 122.8 122.8">
+                <path d="M25.8 77.6c0 7.1-5.8 12.9-12.9 12.9S0 84.7 0 77.6s5.8-12.9 12.9-12.9h12.9v12.9zm6.5 0c0-7.1 5.8-12.9 12.9-12.9s12.9 5.8 12.9 12.9v32.3c0 7.1-5.8 12.9-12.9 12.9s-12.9-5.8-12.9-12.9V77.6z" fill="#E01E5A"/>
+                <path d="M45.2 25.8c-7.1 0-12.9-5.8-12.9-12.9S38.1 0 45.2 0s12.9 5.8 12.9 12.9v12.9H45.2zm0 6.5c7.1 0 12.9 5.8 12.9 12.9s-5.8 12.9-12.9 12.9H12.9C5.8 58.1 0 52.3 0 45.2s5.8-12.9 12.9-12.9h32.3z" fill="#36C5F0"/>
+                <path d="M97 45.2c0-7.1 5.8-12.9 12.9-12.9s12.9 5.8 12.9 12.9-5.8 12.9-12.9 12.9H97V45.2zm-6.5 0c0 7.1-5.8 12.9-12.9 12.9s-12.9-5.8-12.9-12.9V12.9C77.6 5.8 83.4 0 90.5 0s12.9 5.8 12.9 12.9v32.3z" fill="#2EB67D"/>
+                <path d="M77.6 97c7.1 0 12.9 5.8 12.9 12.9s-5.8 12.9-12.9 12.9-12.9-5.8-12.9-12.9V97h12.9zm0-6.5c-7.1 0-12.9-5.8-12.9-12.9s5.8-12.9 12.9-12.9h32.3c7.1 0 12.9 5.8 12.9 12.9s-5.8 12.9-12.9 12.9H77.6z" fill="#ECB22E"/>
+              </svg>
+              <ChevronDown size={12} className="text-gray-400" />
             </div>
-            <button className="bg-brand-purple text-white px-3 py-1.5 rounded-md text-sm font-medium flex items-center gap-1.5">
-              <Share2 size={16} /> Share
+
+            <div className="w-px h-4 bg-gray-200" />
+
+            {/* Share 🔗 Button (Matches Screenshot) */}
+            <button className="bg-[#6d28d9] hover:bg-[#5b21b6] text-white px-3 py-1.5 rounded-lg flex items-center gap-1.5 text-xs font-semibold shadow-sm transition-colors cursor-pointer">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="2" y1="12" x2="22" y2="12"/>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+              </svg>
+              <span>Share</span>
+              <span className="text-[10px] text-purple-200 ml-0.5">🔗</span>
             </button>
-            <div className="w-px h-6 bg-gray-200"></div>
-            <Plus size={20} className="text-gray-500 cursor-pointer" />
-            <div className="relative">
-              <Bell size={20} className="text-gray-500 cursor-pointer" />
-              <div className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-red-500 rounded-full border border-white"></div>
-            </div>
-            <div className="w-8 h-8 rounded-full overflow-hidden bg-gray-300">
-              <img src="https://i.pravatar.cc/150?img=47" alt="Profile" className="w-full h-full object-cover" />
+
+            <div className="w-px h-4 bg-gray-200" />
+
+            {/* Plus Button in border square */}
+            <button className="w-7 h-7 flex items-center justify-center border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer">
+              <Plus size={14} className="text-gray-600" />
+            </button>
+
+            {/* Bell with red dot */}
+            <button className="hover:bg-gray-50 p-1.5 rounded-lg transition-colors text-gray-400 relative cursor-pointer">
+              <Bell size={16} />
+              <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full ring-2 ring-white" />
+            </button>
+
+            {/* Profile Avatar */}
+            <div className="w-7 h-7 rounded-full overflow-hidden ring-1 ring-gray-200 shrink-0">
+              <img 
+                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" 
+                alt="Sarah Watts" 
+                className="w-full h-full object-cover" 
+              />
             </div>
           </div>
         </div>
 
-        {/* Main Content Area */}
-        <div className="flex flex-1 overflow-hidden bg-white">
+        {/* 2. Main Body (Skinny Left Nav, Center Notes, Right Transcript) */}
+        <div className="flex flex-1 min-h-0 overflow-hidden bg-white">
           
-          {/* Left Vertical Nav */}
-          <div className="w-14 border-r border-gray-200 flex flex-col items-center py-6 gap-6 bg-gray-50">
-            <Search size={20} className="text-gray-500" />
-            <Sparkles size={20} className="text-gray-500" />
-            <Mic size={20} className="text-gray-500" />
-            <MessageSquare size={20} className="text-gray-500" />
-            <Bookmark size={20} className="text-gray-500" />
+          {/* Left Skinny Sidebar */}
+          <div className="w-11 border-r border-gray-100 flex flex-col items-center py-4 gap-5 bg-white shrink-0">
+            <button className="text-gray-400 hover:text-gray-700 transition-colors cursor-pointer" title="Search">
+              <Search size={16} />
+            </button>
+            <button className="text-gray-400 hover:text-gray-700 transition-colors cursor-pointer" title="AI Skills">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0L14.59 8.41L23 11L14.59 13.59L12 22L9.41 13.59L1 11L9.41 8.41L12 0Z"/>
+              </svg>
+            </button>
+            <button className="text-gray-400 hover:text-gray-700 transition-colors cursor-pointer" title="Live audio">
+              <Radio size={16} />
+            </button>
+            <button className="text-gray-400 hover:text-gray-700 transition-colors cursor-pointer" title="Comments">
+              <MessageSquare size={16} />
+            </button>
+            <button className="text-gray-400 hover:text-gray-700 transition-colors cursor-pointer" title="Bookmarks">
+              <Bookmark size={16} />
+            </button>
           </div>
 
-          {/* Center Content (Notes) */}
-          <div className="flex-1 p-8 overflow-y-auto">
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl font-bold text-gray-900">Kickoff Call – Fireflies.ai x Acme</h2>
-              <button className="border border-gray-200 text-gray-600 px-3 py-1.5 rounded-md text-sm font-medium flex items-center gap-2">
-                <span className="w-4 h-3 bg-gray-300 rounded-sm"></span> Video
-              </button>
-            </div>
+          {/* Center Meeting Notes View */}
+          <div className="flex-1 overflow-y-auto p-6 md:p-8 space-y-6 scrollbar-thin">
             
-            <div className="flex items-center gap-3 text-sm text-gray-500 mb-8">
-              <div className="flex -space-x-2">
-                <img src="https://i.pravatar.cc/150?img=47" className="w-6 h-6 rounded-full border-2 border-white" />
-                <div className="w-6 h-6 rounded-full border-2 border-white bg-gray-200 flex items-center justify-center text-[10px] text-gray-600">+3</div>
+            {/* Title & Meta Header */}
+            <div>
+              <div className="flex items-center justify-between mb-2">
+                <h1 className="text-2xl font-bold text-gray-900 tracking-tight">
+                  Kickoff Call – Fireflies.ai x Acme
+                </h1>
+                <button className="flex items-center gap-1.5 border border-gray-200 rounded-lg px-3 py-1.5 text-xs font-semibold text-gray-700 hover:bg-gray-50 transition-colors cursor-pointer">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <rect x="2" y="4" width="20" height="16" rx="2"/>
+                    <path d="M10 9l5 3-5 3V9z" fill="currentColor"/>
+                  </svg>
+                  <span>Video</span>
+                </button>
               </div>
-              <span>Sarah Watts, +3</span>
-              <span>•</span>
-              <span>Mar 15 • 11:30 AM</span>
+
+              <div className="flex items-center gap-3 text-xs text-gray-500">
+                <div className="flex items-center gap-1.5">
+                  <img 
+                    src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" 
+                    alt="Sarah Watts" 
+                    className="w-5 h-5 rounded-full object-cover"
+                  />
+                  <span className="font-medium text-gray-700">Sarah Watts, +3</span>
+                </div>
+                <span>·</span>
+                <span>Mar 15 · 11:30 AM</span>
+              </div>
             </div>
 
-            <div className="flex items-center justify-between border-b border-gray-200 pb-2 mb-6">
-              <div className="flex items-center gap-2 text-brand-purple font-medium text-sm cursor-pointer">
-                <Sparkles size={16} /> Sales Notes <span className="text-gray-400">▼</span>
+            {/* Sales Notes Pill & AI Apps */}
+            <div className="flex items-center justify-between pt-1 border-t border-gray-100 text-xs">
+              <div className="flex items-center gap-2 text-[#7b52f6] font-semibold cursor-pointer">
+                <span className="text-sm">✦</span>
+                <span>Sales Notes</span>
+                <ChevronDown size={14} />
+                <button className="text-gray-400 hover:text-gray-600 ml-1">
+                  <Copy size={13} />
+                </button>
               </div>
-              <span className="text-sm text-gray-500 cursor-pointer">+ AI Apps</span>
+              <div className="text-gray-400 font-medium cursor-pointer hover:text-gray-600 flex items-center gap-1">
+                <span>+ AI Apps</span>
+              </div>
             </div>
 
-            <div className="space-y-6">
-              <div>
-                <h3 className="font-semibold text-gray-900 mb-2">Overview</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  The kickoff call served as an introduction between Fireflies.ai and Acme Inc. They aim to use Fireflies.ai primarily to streamline internal communications, automate sales call follow-ups, and improve meeting workflows.
-                </p>
+            {/* Overview Block */}
+            <div className="space-y-2">
+              <h2 className="text-sm font-bold text-gray-900">Overview</h2>
+              <p className="text-xs text-gray-600 leading-relaxed">
+                The kickoff call served as an introduction between Fireflies.ai and Acme Inc. They aim to use Fireflies.ai primarily to streamline internal communications, automate sales call follow-ups, and improve meeting workflows.
+              </p>
+            </div>
+
+            {/* Notes Section */}
+            <div className="space-y-4 pt-2">
+              <h2 className="text-sm font-bold text-gray-900">Notes</h2>
+
+              {/* Bullet Group 1 */}
+              <div className="space-y-1.5">
+                <div className="flex items-center gap-2 text-xs font-bold text-gray-800">
+                  <span className="w-2.5 h-2.5 bg-[#475569] rounded-sm shrink-0"></span>
+                  <span>Use Case &amp; Requirements: 00:00 - 10:12</span>
+                </div>
+                <ul className="pl-6 space-y-1 text-xs text-gray-600 list-disc">
+                  <li>Acme wants their sales team more present during calls</li>
+                  <li>They want to automate data entry in <strong className="text-gray-900">HubSpot</strong> CRM</li>
+                  <li>Team managers want to use Fireflies to provide call coaching</li>
+                </ul>
               </div>
-              
-              <div>
-                <h3 className="font-semibold text-gray-900 mb-4">Notes</h3>
-                <div className="space-y-4">
-                  <div>
-                    <div className="flex items-center gap-2 text-sm font-medium text-gray-800 mb-2">
-                      <div className="w-3 h-3 bg-gray-600 rounded-sm"></div>
-                      Use Case & Requirements: 00:00 - 10:12
-                    </div>
-                    <ul className="list-disc pl-8 text-sm text-gray-600 space-y-1.5">
-                      <li>Acme wants their sales team more present during calls</li>
-                      <li>They want to automate data entry in <span className="font-semibold text-gray-800">HubSpot</span> CRM</li>
-                      <li>Team managers want to use Fireflies to provide call coaching</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <div className="flex items-center gap-2 text-sm font-medium text-gray-800 mb-2">
-                      <div className="w-3 h-3 bg-gray-600 rounded-sm"></div>
-                      Metrics & Goals: 10:15 - 20:43
-                    </div>
-                    <ul className="list-disc pl-8 text-sm text-gray-600 space-y-1.5">
-                      <li>Acme is looking to buy Fireflies for <span className="font-semibold text-gray-800">50 seats</span></li>
-                      <li>Timeline for implementation is <span className="font-semibold text-gray-800">1 week</span></li>
-                    </ul>
-                  </div>
+
+              {/* Bullet Group 2 */}
+              <div className="space-y-1.5">
+                <div className="flex items-center gap-2 text-xs font-bold text-gray-800">
+                  <span className="w-2.5 h-2.5 bg-[#475569] rounded-sm shrink-0"></span>
+                  <span>Metrics &amp; Goals: 10:15 - 20:43</span>
+                </div>
+                <ul className="pl-6 space-y-1 text-xs text-gray-600 list-disc">
+                  <li>Acme is looking to buy Fireflies for <strong className="text-gray-900">50 seats</strong></li>
+                  <li>Timeline for implementation is <strong className="text-gray-900">1 week</strong></li>
+                </ul>
+              </div>
+
+              {/* Bullet Group 3 */}
+              <div className="space-y-1.5">
+                <div className="flex items-center gap-2 text-xs font-bold text-gray-800">
+                  <span className="w-2.5 h-2.5 bg-[#475569] rounded-sm shrink-0"></span>
+                  <span>Requests: 20:50 - 34:52</span>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Right Content (Transcript) */}
-          <div className="w-[350px] border-l border-gray-200 flex flex-col bg-gray-50">
-            <div className="p-4 border-b border-gray-200 bg-white">
-              <h3 className="font-semibold text-gray-900 text-sm mb-3">Transcript</h3>
+          {/* Right Transcript Panel */}
+          <div className="w-[300px] border-l border-gray-100 flex flex-col bg-white shrink-0">
+            <div className="p-4 border-b border-gray-100">
+              <h3 className="text-xs font-semibold text-gray-700 mb-2">Transcript</h3>
               <div className="relative">
-                <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+                <Search size={14} className="absolute left-2.5 top-2.5 text-gray-400" />
                 <input 
                   type="text" 
                   placeholder="Search" 
-                  className="w-full bg-gray-100 border-none rounded-md py-1.5 pl-9 pr-3 text-sm focus:outline-none focus:ring-1 focus:ring-brand-purple"
+                  className="w-full pl-8 pr-3 py-1.5 bg-gray-50 rounded-md text-xs text-gray-700 placeholder-gray-400 border border-gray-100 focus:outline-none"
+                  readOnly
                 />
               </div>
             </div>
-            
-            <div className="flex-1 overflow-y-auto p-4 space-y-6">
-              {/* Transcript Item 1 */}
-              <div className="flex gap-3">
-                <img src="https://i.pravatar.cc/150?img=47" className="w-6 h-6 rounded-full mt-0.5" />
+
+            {/* Transcript Messages */}
+            <div className="flex-1 overflow-y-auto p-4 space-y-4 text-xs">
+              {/* Message 1 */}
+              <div className="flex items-start gap-2.5">
+                <img 
+                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" 
+                  alt="Sarah" 
+                  className="w-6 h-6 rounded-full object-cover mt-0.5"
+                />
                 <div>
-                  <div className="flex items-center gap-2 text-xs mb-1">
+                  <div className="flex items-center gap-1.5 text-[11px] mb-0.5">
                     <span className="font-semibold text-gray-900">Sarah</span>
-                    <span className="text-brand-purple">00:53</span>
+                    <ChevronDown size={11} className="text-gray-400" />
+                    <span className="text-gray-300">·</span>
+                    <span className="text-[#7b52f6] underline cursor-pointer font-mono text-[11px]">00:53</span>
                   </div>
-                  <p className="text-sm text-gray-600 leading-relaxed">
-                    We're aiming for a seamless onboarding experience, especially around the integrations with Slack and HubSpot.
+                  <p className="text-[12px] text-gray-600 leading-relaxed">
+                    We&apos;re aiming for a seamless onboarding experience, especially around the integrations with Slack and HubSpot.
                   </p>
                 </div>
               </div>
 
-              {/* Transcript Item 2 */}
-              <div className="flex gap-3">
-                <div className="w-6 h-6 rounded-full bg-orange-200 text-orange-700 flex items-center justify-center text-xs font-semibold mt-0.5">J</div>
+              {/* Message 2 */}
+              <div className="flex items-start gap-2.5">
+                <div className="w-6 h-6 rounded-full bg-[#fde68a] text-[#b45309] font-bold flex items-center justify-center text-[10px] shrink-0 mt-0.5">
+                  J
+                </div>
                 <div>
-                  <div className="flex items-center gap-2 text-xs mb-1">
+                  <div className="flex items-center gap-1.5 text-[11px] mb-0.5">
                     <span className="font-semibold text-gray-900">Janice</span>
-                    <span className="text-brand-purple">01:24</span>
+                    <ChevronDown size={11} className="text-gray-400" />
+                    <span className="text-gray-300">·</span>
+                    <span className="text-[#7b52f6] underline cursor-pointer font-mono text-[11px]">01:24</span>
                   </div>
-                  <p className="text-sm text-gray-600 leading-relaxed">
+                  <p className="text-[12px] text-gray-600 leading-relaxed">
                     Absolutely, our team will work closely with your tech lead to ensure a smooth integration process.
                   </p>
                 </div>
               </div>
 
-              {/* Transcript Item 3 */}
-              <div className="flex gap-3">
-                <div className="w-6 h-6 rounded-full bg-pink-200 text-pink-700 flex items-center justify-center text-xs font-semibold mt-0.5">C</div>
+              {/* Message 3 */}
+              <div className="flex items-start gap-2.5">
+                <div className="w-6 h-6 rounded-full bg-[#fbcfe8] text-[#be185d] font-bold flex items-center justify-center text-[10px] shrink-0 mt-0.5">
+                  C
+                </div>
                 <div>
-                  <div className="flex items-center gap-2 text-xs mb-1">
+                  <div className="flex items-center gap-1.5 text-[11px] mb-0.5">
                     <span className="font-semibold text-gray-900">Chris</span>
-                    <span className="text-brand-purple">01:47</span>
+                    <ChevronDown size={11} className="text-gray-400" />
+                    <span className="text-gray-300">·</span>
+                    <span className="text-[#7b52f6] underline cursor-pointer font-mono text-[11px]">01:47</span>
                   </div>
-                  <p className="text-sm text-gray-600 leading-relaxed">
-                    I'll prepare the API credentials and reach out by EOD so we can start meeting the timeline.
+                  <p className="text-[12px] text-gray-600 leading-relaxed">
+                    I&apos;ll prepare the API credentials and reach out by EOD so we can start meeting the timeline.
                   </p>
                 </div>
               </div>
@@ -172,20 +267,39 @@ export default function ProductPreview() {
           </div>
         </div>
 
-        {/* Floating AI Notetaker Widget */}
-        <div className="absolute bottom-6 right-8 w-64 bg-slate-900 rounded-xl shadow-2xl border border-slate-700 p-4 flex flex-col items-center justify-center z-30">
-          <div className="absolute top-2 right-2 bg-slate-800 rounded px-1.5 py-0.5 flex items-center gap-1">
-             <span className="w-1 h-3 bg-brand-purple rounded-full animate-pulse"></span>
-             <span className="w-1 h-2 bg-brand-purple rounded-full animate-pulse delay-75"></span>
-             <span className="w-1 h-3 bg-brand-purple rounded-full animate-pulse delay-150"></span>
+        {/* 3. Floating AI Notetaker Widget — Exact match to fireflies.ai Image 2 */}
+        <div className="absolute bottom-5 right-5 w-[250px] h-[160px] bg-[#070514] rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.8)] border border-blue-500/25 p-4 flex flex-col items-center justify-center z-30 select-none backdrop-blur-xl">
+          {/* Blue Soundwave Pill in Top Right */}
+          <div className="absolute top-3.5 right-3.5 bg-[#1e293b]/90 rounded-full px-2 py-0.5 flex items-center gap-0.5 text-[#38bdf8]">
+            <span className="w-0.5 h-2 bg-[#38bdf8] rounded-full animate-pulse"></span>
+            <span className="w-0.5 h-3.5 bg-[#38bdf8] rounded-full animate-pulse delay-75"></span>
+            <span className="w-0.5 h-2 bg-[#38bdf8] rounded-full animate-pulse delay-150"></span>
           </div>
-          <div className="w-24 h-24 rounded-full bg-gradient-to-tr from-cyan-400 via-brand-purple to-pink-500 p-1 animate-spin-slow mb-3">
-            <div className="w-full h-full bg-slate-900 rounded-full flex items-center justify-center">
-               <div className="text-brand-purple font-bold text-xl">f</div>
+
+          {/* Glowing Vibrant Neon Ring with Fireflies Logo Icon */}
+          <div className="relative w-16 h-16 flex items-center justify-center my-1">
+            {/* Glowing aura */}
+            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#38bdf8] via-[#a855f7] to-[#ec4899] blur-md opacity-80 animate-pulse"></div>
+            
+            {/* Outer Ring */}
+            <div className="relative w-full h-full rounded-full bg-gradient-to-tr from-[#38bdf8] via-[#a855f7] to-[#ec4899] p-[3px]">
+              <div className="w-full h-full bg-[#070514] rounded-full flex items-center justify-center">
+                {/* Fireflies Logo Mark inside */}
+                <div className="bg-[#ec4899] p-1.5 rounded text-white flex flex-col items-center justify-center relative w-6 h-6 overflow-hidden shadow-inner">
+                  <div className="w-2 h-2 bg-white rounded-tl-sm absolute top-1 left-1"></div>
+                  <div className="w-2 h-2 bg-white absolute top-1 right-1"></div>
+                  <div className="w-2 h-2 bg-white absolute bottom-1 left-1"></div>
+                </div>
+              </div>
             </div>
           </div>
-          <p className="text-white text-sm font-medium text-center">Sarah's Fireflies AI Notetaker</p>
+
+          {/* Label */}
+          <p className="text-white text-[12px] font-semibold tracking-wide text-center mt-1.5">
+            Sarah&apos;s Fireflies AI Notetaker
+          </p>
         </div>
+
       </div>
     </div>
   );

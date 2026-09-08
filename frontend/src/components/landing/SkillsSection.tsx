@@ -1,78 +1,426 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { ArrowRight, Plus } from "lucide-react";
 
+interface SkillCard {
+  title: string;
+  description: string;
+  iconBg: string;
+  iconColor: string;
+}
+
+interface CategorySkills {
+  id: string;
+  label: string;
+  skills: SkillCard[];
+}
+
+const CATEGORIES: CategorySkills[] = [
+  {
+    id: "sales",
+    label: "Sales",
+    skills: [
+      {
+        title: "BANT App",
+        description: "Extract the budget, authority, need and timeline from meetings.",
+        iconBg: "bg-[#fdbba7]",
+        iconColor: "text-white",
+      },
+      {
+        title: "Churn Risk Analyzer",
+        description: "Identify potential indicators of customer churn.",
+        iconBg: "bg-[#fba8d6]",
+        iconColor: "text-white",
+      },
+      {
+        title: "Customer Objection Tracker",
+        description: "List down objections or concerns raised by the customer.",
+        iconBg: "bg-[#a5b4fc]",
+        iconColor: "text-white",
+      },
+      {
+        title: "Follow-Up Email Generator",
+        description: "Generate follow up email for the deal.",
+        iconBg: "bg-[#67e8f9]",
+        iconColor: "text-white",
+      },
+    ],
+  },
+  {
+    id: "recruiting",
+    label: "Recruiting",
+    skills: [
+      {
+        title: "Performance Review",
+        description: "Craft clear and concise performance review for employees.",
+        iconBg: "bg-[#fdbba7]",
+        iconColor: "text-white",
+      },
+      {
+        title: "Conflict Detector",
+        description: "Identify potential conflicts or disagreements in meetings.",
+        iconBg: "bg-[#fba8d6]",
+        iconColor: "text-white",
+      },
+      {
+        title: "Attendee Contribution",
+        description: "Highlight individual contribution in meetings.",
+        iconBg: "bg-[#a5b4fc]",
+        iconColor: "text-white",
+      },
+      {
+        title: "Job Description Constructor",
+        description: "Create job role based on discussed role requirements.",
+        iconBg: "bg-[#67e8f9]",
+        iconColor: "text-white",
+      },
+    ],
+  },
+  {
+    id: "marketing",
+    label: "Marketing",
+    skills: [
+      {
+        title: "Product Launch Planning",
+        description: "Create a product launch plan based on the next steps",
+        iconBg: "bg-[#fdbba7]",
+        iconColor: "text-white",
+      },
+      {
+        title: "Content Calendar Generator",
+        description: "Create content calendars based on strategy discussions",
+        iconBg: "bg-[#fba8d6]",
+        iconColor: "text-white",
+      },
+      {
+        title: "Campaign Performance Review",
+        description: "Extract key metrics from campaign review meetings.",
+        iconBg: "bg-[#a5b4fc]",
+        iconColor: "text-white",
+      },
+      {
+        title: "Customer Journey Tracker",
+        description: "List out how the customer first learned about your product.",
+        iconBg: "bg-[#67e8f9]",
+        iconColor: "text-white",
+      },
+    ],
+  },
+  {
+    id: "user_research",
+    label: "User Research",
+    skills: [
+      {
+        title: "User Interview",
+        description: "Capture key insights from your user research conversations.",
+        iconBg: "bg-[#fdbba7]",
+        iconColor: "text-white",
+      },
+      {
+        title: "Competition Analyzer",
+        description: "Analyze market threats or competitions based on the discussion.",
+        iconBg: "bg-[#fba8d6]",
+        iconColor: "text-white",
+      },
+      {
+        title: "Feedback Extractor",
+        description: "Capture feedback shared by users inside the meeting.",
+        iconBg: "bg-[#a5b4fc]",
+        iconColor: "text-white",
+      },
+      {
+        title: "Use-Case Extractor",
+        description: "Extract specific use-case mentioned during the meeting",
+        iconBg: "bg-[#67e8f9]",
+        iconColor: "text-white",
+      },
+    ],
+  },
+  {
+    id: "engineering",
+    label: "Engineering",
+    skills: [
+      {
+        title: "Daily Stand-Up",
+        description: "Summarize action items and blockers in your daily standups.",
+        iconBg: "bg-[#fdbba7]",
+        iconColor: "text-white",
+      },
+      {
+        title: "Goal Progress Tracker",
+        description: "Track progress towards goals discussed in meetings.",
+        iconBg: "bg-[#fba8d6]",
+        iconColor: "text-white",
+      },
+      {
+        title: "Issue Extractor",
+        description: "Extract issues mentioned during the meeting.",
+        iconBg: "bg-[#a5b4fc]",
+        iconColor: "text-white",
+      },
+      {
+        title: "Resource Needs Indentifier",
+        description: "Identify resource requirements mentioned in meetings.",
+        iconBg: "bg-[#67e8f9]",
+        iconColor: "text-white",
+      },
+    ],
+  },
+  {
+    id: "finance",
+    label: "Finance",
+    skills: [
+      {
+        title: "Budget Allocation Advisor",
+        description: "Suggest optimal budget allocation based on dicussions.",
+        iconBg: "bg-[#fdbba7]",
+        iconColor: "text-white",
+      },
+      {
+        title: "Customer Profile Generator",
+        description: "Create a profile of the customer based on advisory call.",
+        iconBg: "bg-[#fba8d6]",
+        iconColor: "text-white",
+      },
+      {
+        title: "Cost Benefit Analysis",
+        description: "Provide detailed cost-benefit analysis for discussed projects.",
+        iconBg: "bg-[#a5b4fc]",
+        iconColor: "text-white",
+      },
+      {
+        title: "Financial Data Categorizer",
+        description: "Categorizes the financial data from the meeting.",
+        iconBg: "bg-[#67e8f9]",
+        iconColor: "text-white",
+      },
+    ],
+  },
+  {
+    id: "healthcare",
+    label: "Healthcare",
+    skills: [
+      {
+        title: "Patient Symptom Summarizer",
+        description: "Summarize patient symptoms from medical consultations.",
+        iconBg: "bg-[#fdbba7]",
+        iconColor: "text-white",
+      },
+      {
+        title: "Diagnosis Insights Generator",
+        description: "Summarizes potential diagnoses based on the consultation",
+        iconBg: "bg-[#fba8d6]",
+        iconColor: "text-white",
+      },
+      {
+        title: "Patient History Tracker",
+        description: "Creates a concise summary of a patient's medical history.",
+        iconBg: "bg-[#a5b4fc]",
+        iconColor: "text-white",
+      },
+      {
+        title: "Health Data Insights",
+        description: "Summarizes trends patient self-reports for health monitoring.",
+        iconBg: "bg-[#67e8f9]",
+        iconColor: "text-white",
+      },
+    ],
+  },
+  {
+    id: "media_podcasting",
+    label: "Media & Podcasting",
+    skills: [
+      {
+        title: "Ad Segment Extractor",
+        description: "Identify and isolate ad segments for streamlined editing.",
+        iconBg: "bg-[#fdbba7]",
+        iconColor: "text-white",
+      },
+      {
+        title: "Blog Converter",
+        description: "Generate well-structured blog posts from podcast.",
+        iconBg: "bg-[#fba8d6]",
+        iconColor: "text-white",
+      },
+      {
+        title: "Interview Insights Generator",
+        description: "Summarize guest interviews, insights, and unique perspectives.",
+        iconBg: "bg-[#a5b4fc]",
+        iconColor: "text-white",
+      },
+      {
+        title: "Podcast Growth Insights",
+        description: "Analyze audience engagement trends and performance.",
+        iconBg: "bg-[#67e8f9]",
+        iconColor: "text-white",
+      },
+    ],
+  },
+  {
+    id: "venture_capital",
+    label: "Venture Capital",
+    skills: [
+      {
+        title: "Pitch Deck Evaluator",
+        description: "Score founder pitches, TAM estimates, and competitive advantages.",
+        iconBg: "bg-[#fdbba7]",
+        iconColor: "text-white",
+      },
+      {
+        title: "Due Diligence Checklist",
+        description: "Extract key financial, legal, and technical diligence questions.",
+        iconBg: "bg-[#fba8d6]",
+        iconColor: "text-white",
+      },
+      {
+        title: "Portfolio Quarterly Update",
+        description: "Track portfolio company MoM growth, ARR, and hiring updates.",
+        iconBg: "bg-[#a5b4fc]",
+        iconColor: "text-white",
+      },
+      {
+        title: "Term Sheet Notes",
+        description: "Summarize valuation, liquidation preferences, and board seat terms.",
+        iconBg: "bg-[#67e8f9]",
+        iconColor: "text-white",
+      },
+    ],
+  },
+];
+
 export default function SkillsSection() {
-  const tabs = [
-    "Sales", "Recruiting", "Marketing", "User Research", 
-    "Engineering", "Finance", "Healthcare", "Media & Podcasting", "Venture Capital"
-  ];
+  const [activeCategoryIndex, setActiveCategoryIndex] = useState<number>(0);
+  const [key, setKey] = useState<number>(0);
+  const [isPaused, setIsPaused] = useState<boolean>(false);
+
+  // Auto-advance tabs every 4 seconds
+  useEffect(() => {
+    if (isPaused) return;
+
+    const timer = setInterval(() => {
+      setActiveCategoryIndex((prev) => (prev + 1) % CATEGORIES.length);
+      setKey((prevKey) => prevKey + 1);
+    }, 4000);
+
+    return () => clearInterval(timer);
+  }, [activeCategoryIndex, isPaused]);
+
+  const handleTabClick = (index: number) => {
+    setActiveCategoryIndex(index);
+    setKey((prevKey) => prevKey + 1);
+  };
+
+  const currentCategory = CATEGORIES[activeCategoryIndex];
 
   return (
-    <section className="bg-white py-24 relative z-10 text-center">
-      <div className="max-w-5xl mx-auto px-6">
-        <h2 className="text-4xl md:text-[44px] font-bold mb-6 tracking-tight text-gray-900">
-          Go <span className="text-brand-purple">Beyond Notetaking</span> With <br />
+    <section className="bg-white py-24 relative z-10 text-center select-none overflow-hidden">
+      <div className="max-w-6xl mx-auto px-6">
+        
+        {/* Title & Subtitle Header */}
+        <h2 className="text-4xl md:text-[46px] font-extrabold mb-5 tracking-tight text-gray-900 leading-tight">
+          Go <span className="text-[#7b52f6]">Beyond Notetaking</span> With <br />
           200+ AI Skills
         </h2>
         
-        <p className="text-gray-600 text-lg mb-8 max-w-2xl mx-auto leading-relaxed">
-          AI Skills help you automatically extract key details, generate follow-up emails, score candidates, and other insights from your meetings.<br/>
-          <span className="font-medium text-gray-700 cursor-pointer hover:text-brand-purple">Browse</span>
+        <p className="text-gray-600 text-base md:text-lg mb-8 max-w-2xl mx-auto leading-relaxed">
+          AI Skills help you automatically extract key details, generate follow-up emails, score candidates, and other insights from your meetings.<br />
+          <span className="font-semibold text-gray-800 cursor-pointer hover:text-[#7b52f6] underline underline-offset-4">Browse</span>
         </p>
 
-        <div className="mb-16">
+        {/* Call to Action Button */}
+        <div className="mb-14">
           <Link 
             href="/home"
-            className="inline-flex bg-brand-purple text-white px-8 py-3 rounded-md font-medium hover:bg-brand-purple-hover transition-colors items-center gap-2"
+            className="inline-flex bg-[#7b52f6] hover:bg-[#6842d1] text-white px-7 py-3 rounded-lg font-semibold text-sm transition-all duration-200 items-center gap-2 shadow-md hover:shadow-lg shadow-purple-500/20"
           >
             Get Started <ArrowRight size={18} />
           </Link>
         </div>
 
-        {/* Tabs */}
-        <div className="flex flex-wrap justify-center gap-2 mb-16">
-          {tabs.map((tab) => (
-            <button 
-              key={tab}
-              className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
-                tab === "Marketing" 
-                  ? "bg-brand-dark text-white shadow-md" 
-                  : "bg-gray-50 text-gray-600 hover:bg-gray-100 border border-gray-100"
-              }`}
-            >
-              {tab}
-            </button>
-          ))}
+        {/* Tab Pills with Animated Timer Bar */}
+        <div className="flex flex-wrap justify-center gap-2 mb-12 max-w-5xl mx-auto">
+          {CATEGORIES.map((cat, idx) => {
+            const isActive = activeCategoryIndex === idx;
+
+            return (
+              <button 
+                key={cat.id}
+                onClick={() => handleTabClick(idx)}
+                className={`relative px-4.5 py-2.5 rounded-lg text-xs md:text-sm font-semibold transition-all duration-200 cursor-pointer overflow-hidden ${
+                  isActive 
+                    ? "bg-[#1d1836] text-white shadow-md" 
+                    : "bg-gray-50/90 text-gray-600 hover:bg-gray-100 hover:text-gray-900 border border-gray-100"
+                }`}
+              >
+                <span className="relative z-10">{cat.label}</span>
+
+                {/* Animated Timer Progress Bar under active pill */}
+                {isActive && (
+                  <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-purple-900/40 overflow-hidden rounded-b-lg">
+                    <div
+                      key={key}
+                      className={`h-full bg-[#7b52f6] animate-tabs-progress ${
+                        isPaused ? "paused" : ""
+                      }`}
+                    />
+                  </div>
+                )}
+              </button>
+            );
+          })}
         </div>
 
-        {/* Cards Stack */}
-        <div className="max-w-2xl mx-auto flex flex-col gap-4 text-left">
-           <div className="bg-white border border-gray-200 p-4 rounded-xl shadow-sm flex items-center gap-4 hover:shadow-md transition-shadow cursor-pointer">
-              <div className="w-12 h-12 rounded-lg bg-[#fdbba7] flex items-center justify-center text-white shrink-0">
-                 <Plus size={24} />
+        {/* Interactive Cards Stack with Smooth Transition & Hover Pause */}
+        <div 
+          className="max-w-2xl mx-auto flex flex-col gap-3.5 text-left relative"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
+          {currentCategory.skills.map((skill, idx) => (
+            <div 
+              key={`${currentCategory.id}-${idx}`}
+              className="bg-white border border-gray-100 p-4 sm:p-4.5 rounded-2xl shadow-[0_4px_25px_rgba(0,0,0,0.03)] flex items-center gap-4 hover:shadow-md hover:border-gray-200 transition-all duration-200 cursor-pointer animate-fadeIn"
+            >
+              <div className={`w-11 h-11 sm:w-12 sm:h-12 rounded-xl ${skill.iconBg} flex items-center justify-center ${skill.iconColor} shrink-0 shadow-sm`}>
+                <Plus size={24} strokeWidth={2.5} />
               </div>
-              <div>
-                 <h4 className="font-semibold text-gray-900 text-[15px]">Product Launch Planning</h4>
-                 <p className="text-sm text-gray-500">Create a product launch plan based on the next steps</p>
+              <div className="flex-1 min-w-0">
+                <h4 className="font-bold text-gray-900 text-sm sm:text-[15px] mb-0.5 tracking-tight">
+                  {skill.title}
+                </h4>
+                <p className="text-xs sm:text-sm text-gray-500 leading-normal">
+                  {skill.description}
+                </p>
               </div>
-           </div>
+            </div>
+          ))}
 
-           <div className="bg-white border border-gray-200 p-4 rounded-xl shadow-sm flex items-center gap-4 hover:shadow-md transition-shadow cursor-pointer">
-              <div className="w-12 h-12 rounded-lg bg-[#fba8d6] flex items-center justify-center text-white shrink-0">
-                 <Plus size={24} />
+          {/* 5th "Create New" Card matching Fireflies screenshot */}
+          <div 
+            key={`${currentCategory.id}-create-new`}
+            className="bg-gradient-to-b from-white via-white to-emerald-50/60 border border-gray-100 p-4 sm:p-4.5 rounded-2xl shadow-[0_4px_25px_rgba(0,0,0,0.03)] flex items-center justify-between gap-4 hover:shadow-md hover:border-emerald-200/80 transition-all duration-200 cursor-pointer animate-fadeIn"
+          >
+            <div className="flex items-center gap-4 flex-1 min-w-0">
+              <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-emerald-100/90 text-emerald-500 flex items-center justify-center shrink-0 shadow-sm">
+                <Plus size={24} strokeWidth={2.5} />
               </div>
-              <div>
-                 <h4 className="font-semibold text-gray-900 text-[15px]">Content Calendar Generator</h4>
-                 <p className="text-sm text-gray-500">Create content calendars based on strategy discussions</p>
+              <div className="flex-1 min-w-0">
+                <h4 className="font-bold text-gray-900 text-sm sm:text-[15px] mb-0.5 tracking-tight">
+                  Create New
+                </h4>
+                <p className="text-xs sm:text-sm text-gray-500 leading-normal">
+                  Add prompts to tailor meeting summaries to fit your needs.
+                </p>
               </div>
-           </div>
+            </div>
 
-           <div className="bg-white border border-gray-200 p-4 rounded-xl shadow-sm flex items-center gap-4 hover:shadow-md transition-shadow cursor-pointer opacity-50 translate-y-2 scale-95 origin-top">
-              <div className="w-12 h-12 rounded-lg bg-blue-300 flex items-center justify-center text-white shrink-0"></div>
-              <div>
-                 <h4 className="font-semibold text-gray-900 text-[15px]">Campaign Performance Review</h4>
-              </div>
-           </div>
+            <button className="bg-white border border-gray-200 text-gray-800 hover:bg-gray-50 px-4 py-2 rounded-lg text-xs font-semibold shadow-sm transition-colors shrink-0">
+              Create
+            </button>
+          </div>
+
         </div>
 
       </div>

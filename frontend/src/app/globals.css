@@ -14,13 +14,35 @@ body {
   overflow-x: hidden;
 }
 
-/* Subtle star/particle background effect */
+/* Dark space background gradient — matches original: deep dark with barely-there purple at top */
 .starry-bg {
-  background-image: 
-    radial-gradient(1px 1px at 15% 15%, rgba(255, 255, 255, 0.4) 1px, transparent 0),
-    radial-gradient(1px 1px at 30% 60%, rgba(255, 255, 255, 0.2) 1px, transparent 0),
-    radial-gradient(1.5px 1.5px at 75% 35%, rgba(255, 255, 255, 0.5) 1px, transparent 0),
-    radial-gradient(2px 2px at 50% 80%, rgba(255, 255, 255, 0.3) 1px, transparent 0),
-    radial-gradient(1px 1px at 85% 85%, rgba(255, 255, 255, 0.4) 1px, transparent 0);
-  background-size: 250px 250px;
+  background-color: #0d0a1e;
+  background-image: radial-gradient(ellipse at 50% 0%, rgba(123, 82, 246, 0.12) 0%, transparent 55%);
 }
+
+/* Dev indicator suppression */
+nextjs-portal,
+[data-nextjs-route-announcer],
+div[data-nextjs-toast],
+#nextjs-dev-tools,
+[data-next-badge] {
+  display: none !important;
+}
+
+@keyframes tabsProgress {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.animate-tabs-progress {
+  animation: tabsProgress 4000ms linear forwards;
+}
+
+.animate-tabs-progress.paused {
+  animation-play-state: paused;
+}
+
