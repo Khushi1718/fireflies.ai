@@ -268,4 +268,5 @@ def _persist_recall_transcript(meeting_id: int, transcript: list, db: Session):
     db.commit()
     meeting = db.query(Meeting).filter(Meeting.id == meeting_id).first()
     if meeting:
-        schedule_live_notes(meeting_id)
+        from app.services import ai_notes_service
+        ai_notes_service.schedule_live_notes(meeting_id)

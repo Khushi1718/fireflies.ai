@@ -46,7 +46,7 @@ def generate_meeting_transcript(meeting_id: int, db: Session = Depends(get_db)):
         if os.path.exists(demo_path):
             audio_path = demo_path
             # Provide an endpoint route for the frontend to play the audio
-            meeting.media_url = "http://localhost:8000/uploads/demo_meeting.mp3"
+            meeting.media_url = "/uploads/demo_meeting.mp3"
         else:
             raise HTTPException(status_code=400, detail="No audio file uploaded and demo_meeting.mp3 not found.")
 
